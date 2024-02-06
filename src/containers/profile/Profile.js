@@ -42,7 +42,10 @@ export default function Profile() {
     !(typeof prof === "string" || prof instanceof String)
   ) {
     return (
-      <Contact />
+      <Suspense fallback={renderLoader()}>
+        {/* <GithubProfileCard prof={prof} key={prof.id} /> */}
+        <Contact />
+      </Suspense>
     );
   } else {
     return <Contact />;
